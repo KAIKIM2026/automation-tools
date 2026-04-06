@@ -1,0 +1,45 @@
+{
+  "name": "slideshow-maker-electron",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Electron shell for the slideshow maker workflow.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:backend": "powershell -ExecutionPolicy Bypass -File .\\scripts\\build-backend.ps1",
+    "dist:win": "npm run build:backend && electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^30.5.1",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.coron.slideshowstudio",
+    "productName": "Slideshow Studio",
+    "asar": true,
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**/*",
+      "src/main/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "dist-python/slideshow_backend.exe",
+        "to": "backend/slideshow_backend.exe"
+      },
+      {
+        "from": "../ffmpeg-8.1-essentials_build/bin/ffmpeg.exe",
+        "to": "ffmpeg/ffmpeg.exe"
+      }
+    ],
+    "win": {
+      "icon": "assets/icons/app-icon.ico",
+      "signAndEditExecutable": false,
+      "target": [
+        "nsis"
+      ]
+    }
+  }
+}

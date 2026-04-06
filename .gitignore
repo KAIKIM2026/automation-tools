@@ -1,0 +1,17 @@
+node_modules/
+electron-app/node_modules/
+
+__pycache__/
+*.pyc
+
+*.exe
+*.blockmap
+
+ffmpeg-8.1-essentials_build/
+Slideshow Studio Portable 0.1.0/
+ffmpeg_log.txt
+
+electron-app/dist/
+electron-app/build/
+
+.omx/

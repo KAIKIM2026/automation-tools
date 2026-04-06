@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slideshow Studio</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <aside class="hero-panel">
+        <div class="hero-badge">SLIDESHOW STUDIO</div>
+        <h1>Photo Folder To Video</h1>
+        <p class="hero-copy">
+          Convert a photo folder into a vertical slideshow video with background color and shadow controls.
+        </p>
+
+        <section class="card status-card side-status-card">
+          <div class="section-head">
+            <span class="eyebrow">EXPORT</span>
+            <h2>Render Status</h2>
+            <p>Check progress and export the slideshow video.</p>
+          </div>
+
+          <div class="status-row">
+            <div>
+              <span class="status-label">Status</span>
+              <div id="statusBadge" class="status-badge idle">Ready</div>
+            </div>
+            <div class="output-meta">
+              <span class="status-label">Output</span>
+              <strong>MP4 / H.264</strong>
+            </div>
+          </div>
+
+          <div class="progress-shell">
+            <div id="progressBar" class="progress-bar"></div>
+          </div>
+
+          <p id="statusMessage" class="status-message">Ready to export.</p>
+          <p id="resultMessage" class="result-message"></p>
+
+          <div class="action-row">
+            <button id="startButton" type="button" class="primary-button">Make Video</button>
+            <button id="cancelButton" type="button" class="ghost-button" disabled>Cancel</button>
+          </div>
+        </section>
+      </aside>
+
+      <main class="workspace">
+        <section class="card">
+          <div class="section-head">
+            <span class="eyebrow">INPUT</span>
+            <h2>Basic Settings</h2>
+            <p>Choose the photo folder and the duration per photo.</p>
+          </div>
+
+          <label class="field">
+            <span>Photo folder</span>
+            <div class="folder-row">
+              <input id="folderInput" type="text" placeholder="Select a folder" />
+              <button id="pickFolderButton" type="button" class="secondary-button">Browse</button>
+            </div>
+          </label>
+
+          <label class="field">
+            <span>Seconds per photo</span>
+            <input id="durationInput" type="number" min="0.1" step="0.1" value="0.5" />
+          </label>
+        </section>
+
+        <section class="card">
+          <div class="section-head">
+            <span class="eyebrow">LOOK</span>
+            <h2>Background And Shadow</h2>
+            <p>Color, shadow, and spacing controls stay visible on one screen.</p>
+          </div>
+
+          <div class="grid">
+            <label class="field">
+              <span>Background color</span>
+              <div class="color-row">
+                <input id="bgColorInput" type="text" value="#f2f2f2" />
+                <input id="bgColorPicker" type="color" value="#f2f2f2" />
+              </div>
+            </label>
+
+            <label class="field checkbox-field">
+              <span>Shadow</span>
+              <button id="shadowToggle" type="button" class="toggle-button is-active" aria-pressed="true">
+                Enabled
+              </button>
+            </label>
+          </div>
+
+          <div id="shadowControls" class="slider-stack">
+            <label class="field">
+              <span>Shadow blur</span>
+              <input id="blurInput" type="range" min="0" max="10" step="1" value="5" />
+              <strong id="blurValue">5</strong>
+            </label>
+
+            <label class="field">
+              <span>Shadow distance</span>
+              <input id="distanceInput" type="range" min="0" max="10" step="1" value="6" />
+              <strong id="distanceValue">6</strong>
+            </label>
+
+            <label class="field">
+              <span>Shadow opacity</span>
+              <input id="opacityInput" type="range" min="0" max="100" step="1" value="35" />
+              <strong id="opacityValue">35%</strong>
+            </label>
+          </div>
+        </section>
+
+        <section class="card preview-card">
+          <div class="section-head">
+            <span class="eyebrow">PREVIEW</span>
+            <h2>Live Preview</h2>
+            <p>Preview the background color and shadow styling before export.</p>
+          </div>
+
+          <div id="previewStage" class="preview-stage">
+            <div id="previewShadow" class="preview-shadow"></div>
+            <div class="preview-photo">
+              <div class="preview-photo-inner">
+                <span>Sample Photo</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
