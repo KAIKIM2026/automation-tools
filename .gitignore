@@ -1,5 +1,5 @@
 node_modules/
-electron-app/node_modules/
+slideshow-studio/node_modules/
 
 __pycache__/
 *.pyc
@@ -11,7 +11,7 @@ ffmpeg-8.1-essentials_build/
 Slideshow Studio Portable 0.1.0/
 ffmpeg_log.txt
 
-electron-app/dist/
-electron-app/build/
+slideshow-studio/dist/
+slideshow-studio/build/
 
 .omx/

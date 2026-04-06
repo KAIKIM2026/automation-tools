@@ -79,7 +79,7 @@ function getBackendLaunch(projectRoot) {
 
   return {
     command: getPythonExecutable(),
-    args: [path.join(projectRoot, "electron-app", "src", "python", "slideshow_backend.py")]
+    args: [path.join(projectRoot, "slideshow-studio", "src", "python", "slideshow_backend.py")]
   };
 }
 
